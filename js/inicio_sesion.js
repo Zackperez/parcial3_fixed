@@ -1,37 +1,61 @@
-document.querySelector('#login-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
-
-  const datos_insertar = {
-    username: username,
-    password: password
+const Modelo = {
+  async iniciarSesion(username, password) {
+    const datos_insertar = {
+      username: username,
+      password: password
+    }
+    const res = await axios({
+      method: "POST",
+      url: "http://127.0.0.1:5000/login",
+      data: datos_insertar
+    });
+    return res;
   }
+}
 
-  axios({
-    method: "POST",
-    url: "http://127.0.0.1:5000/login",
-    data: datos_insertar
-  })
-    .then(res => {
+const Vista = {
+  getDatosIniciarSesion() {
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
+    return { username, password };
+  },
+
+  mostrarMensajeError(mensaje) {
+    alert(mensaje)
+    console.log(mensaje);
+  },
+
+  mostrarMensajeSatisfactorio(mensaje) {
+    alert(mensaje)
+    console.log(mensaje);
+  },
+
+  redirigirAIndex() {
+    location.href = ("../index.html");
+  }
+}
+
+const Controlador = {
+  async iniciarSesion() {
+    const { username, password } = Vista.getDatosIniciarSesion();
+    try {
+      const res = await Modelo.iniciarSesion(username, password);
+      console.log(res)
       if (res.status == "200") {
-        access_token = res.data.access_token;
+        const access_token = res.data.access_token;
         localStorage.setItem("access_token", access_token);
-        console.log(localStorage.getItem("access_token"));
-        location.href = ("../index.html")
+        Vista.mostrarMensajeSatisfactorio("Inicio de sesión exitoso");
+        Vista.redirigirAIndex();
       }
-    })
-    .catch(err => console.log('Error:', err))
+    } catch (err) {
+      Vista.mostrarMensajeError('Error al iniciar sesión');
+    }
+  }
+}
 
-});
 
-/*
-  const response = await fetch('http://127.0.0.1:5000/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-  });
-  const data = await response.json();
-  console.log(response); */
+const botonIniciarSesion = document.getElementById('botonIniciarSesion');
+
+botonIniciarSesion.onclick = function(){
+  Controlador.iniciarSesion()
+}

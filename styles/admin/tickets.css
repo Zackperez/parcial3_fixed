@@ -1,4 +1,4 @@
-@import url(global/global.css);
+@import url(../global/global.css);
 
 a{
     cursor: pointer;
@@ -9,69 +9,14 @@ button{
     border: none;
 }
 
-.hero{
+.hero {
     display: grid;
-    grid-template-areas: 
-    "menu"
-    "pagina-principal"
-    "footer";
-    grid-template-rows: auto 80vh auto;
+    grid-template-areas:
+        "menu"
+        "pagina-principal"
+        "footer";
+    grid-template-rows: auto 90vh auto;
 }
-.pagina-principal{
-    grid-area: pagina-principal;
-    display: grid;
-    margin: 10vh 10vw;
-}
-
-.principal-grilla{
-    display: grid;
-    grid-template-areas: 
-    "textos video"
-    "botones video";
-    align-items: center;
-    grid-template-columns: auto;
-}
-
-.principal-botones{
-    grid-area: botones;
-    display: flex;
-    column-gap: 1vw;
-}
-
-.principal-texto {
-    grid-area: textos;
-    display: flex;
-    flex-direction: column;
-}
-
-.principal__texto{
-    width: 40vw;
-    text-align: justify;
-    margin: 2vh;
-}
-.principal-botones a{
-    text-align: center;
-    width: 9.5vw;
-    padding: 0.7vw 2.5vw;
-    background: pink;
-    border-radius: 20px;
-    text-decoration: none;
-    color: var(--negro);
-}
-.principal-botones a:hover{
-    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
-}
-.principal-video{
-    grid-area: video;
-    display: flex;
-}
-
-.principal__video{ 
-    width: 30vw;
-    height: 40vh;
-}
-
-/* CONTENIDO MENU */
 
 .menu {
     grid-area: menu;
@@ -125,10 +70,70 @@ button{
     color: var(--pink);
 }
 
-
 .menu__item--active a {
     font-weight: bold;
     border-bottom: 1px solid var(--blanco);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.pagina-principal{
+    grid-area: pagina-principal;
+    margin-top: 5vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 5vh;
+}
+
+.principal-grilla{
+    display: grid;
+    grid-template-areas: 
+    "titulo"
+    "tickets";
+    justify-content: center;
+}
+
+.tickets-grilla{
+    height: 65vh;
+    overflow-y: auto;
+    display: grid;
+    row-gap: 2vh;
+    width: 65vw;
+}
+
+.ticket{
+    display: grid;
+    grid-template-areas: 
+    "titulo hora"
+    "descripcion descripcion"
+    "usuario usuario";
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5vw;
+    width: auto;
+    height: 20vh;
+    padding: 1vw 2vw;
+    color: var(--negro);
+    align-items: center;
+}
+
+.ticket-titulo{
+    grid-area: titulo;
+    text-align: start;
+}
+
+.ticket-hora{
+    display: grid;
+    justify-content: end;
+    grid-area: hora;
+}
+
+.ticket-descripcion{
+    width: 60vw;
+    grid-area: descripcion;
+}
+
+.ticket-hora{
+    grid-area: hora;
 }
 
 

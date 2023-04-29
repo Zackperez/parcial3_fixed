@@ -1,5 +1,13 @@
 @import url(global/global.css);
 
+a{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
 
 .hero {
     display: grid;
@@ -7,7 +15,7 @@
         "menu"
         "pagina-principal"
         "footer";
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto;
 }
 
 .menu {
@@ -56,6 +64,10 @@
     font-size: 1.2vw;
     margin-left: 2vw;
     color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a:hover{
+    color: var(--pink);
 }
 
 .menu__item--active a {
@@ -157,7 +169,7 @@
     grid-area: footer;
     display: grid;
     align-items: center;
-    height: 20vh;
+    height: 10vh;
     background-color: var(--negro);
 }
 

@@ -18,7 +18,7 @@ li{
     "menu"
     "pagina-principal"
     "footer";
-    grid-template-rows: auto;
+    grid-template-rows: auto 70vh auto;
 }
 
 .menu {

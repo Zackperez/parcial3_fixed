@@ -8,6 +8,43 @@
     "footer";
     grid-template-rows: auto 70vh auto;
 }
+.pagina-principal{
+    margin-top: 8vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 5vh;
+   
+}
+.principal-grilla{
+    display: grid;
+    grid-template-areas: 
+    "textos imagen";
+    grid-template-columns: auto;
+    column-gap: 2vw;
+}
+.principal-texto{
+    display: flex;
+    justify-content: flex-start;
+    grid-area: textos;
+}
+.principal-imagen{
+    grid-area: imagen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.principal-grilla .principal-texto{
+    line-height: 30px;
+    padding: 0px 25px;
+    text-align: justify;
+    width: 45vw;
+    height: 60vh;
+    overflow-x: auto;
+}
+.principal-imagen .principal__imagen{
+    height: 56vh;
+    width: auto;
+}
 
 /* CONTENIDO MENU */
 

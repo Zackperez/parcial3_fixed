@@ -1,5 +1,14 @@
 @import url(global/global.css);
 
+a{
+    cursor: pointer;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
 body {
     background-color: var(--blanco);
 }
@@ -10,7 +19,7 @@ body {
     "menu"
     "formulario"
     "footer";
-    grid-template-rows: auto 70vh auto;
+    grid-template-rows: auto 80vh auto;
 }
 
 /* CONTENIDO MENU */
@@ -61,6 +70,10 @@ body {
     font-size: 1.2vw;
     margin-left: 2vw;
     color: var(--blanco);
+}
+
+.menu-contenedor .menu-lista .menu__item a:hover{
+    color: var(--pink);
 }
 
 .menu__item--active a {
@@ -162,7 +175,7 @@ body {
     grid-area: footer;
     display: grid;
     align-items: center;
-    height: 20vh;
+    height: 10vh;
     background-color: var(--negro);
 }
 

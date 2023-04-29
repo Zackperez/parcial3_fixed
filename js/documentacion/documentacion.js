@@ -1,9 +1,3 @@
-/*function inicioSesionNotificacion() {
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
-*/
 
 if(localStorage.getItem("access_token")){
 
@@ -36,7 +30,7 @@ if(localStorage.getItem("access_token")){
     const a = document.createElement('a');
     li.classList.add('menu__item');
     button.setAttribute("id", "IniciarSesion")
-    a.setAttribute("href", "pages/inicio_sesion.html");
+    a.setAttribute("href", "inicio_sesion.html");
     button.appendChild(a)
     li.appendChild(button)
     a.appendChild(document.createTextNode("Iniciar Sesión"));
@@ -48,11 +42,11 @@ const cerrarSesion = document.getElementById ("cerrarSesion");
 cerrarSesion.onclick = function (){
     localStorage.removeItem('access_token');
     alert("Has cerrado sesión");
-    location.href = "../index.html";
+    location.href = "../../index.html";
 }
 
 const vistaTickets = document.getElementById('tickets');
 
 vistaTickets.onclick = function(){
-    location.href = "pages/admin/tickets.html";
+    location.href = "admin/tickets.html";
 }
